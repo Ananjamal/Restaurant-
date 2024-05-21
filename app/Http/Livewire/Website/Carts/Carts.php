@@ -11,12 +11,13 @@ class Carts extends Component
 {
     public $CartItems;
     public $user_id;
-    public $devide_id;
+    public $device_id;
     public $subtotalPrice;
     public $totalPrice;
     public $shippingPrice = 10;
     public $couponCode;
     public $discount = 0;
+
     public function mount()
     {
         if (auth()->check()) {
@@ -34,29 +35,32 @@ class Carts extends Component
         $this->calculateTotalPrice();
         $this->savePrices();
     }
+
     public function deleteFromCart($id)
     {
         $cartItem = Cart::find($id);
         if (!$cartItem) {
             $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => 'Item Not Found.']);
+            return;
         }
         $cartItem->delete();
         $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Item Removed From Cart Successfully.']);
         $this->mount();
     }
+
     public function increaseQuantity($id)
     {
-        $cartItem = Cart::findOrFail($id); // Fetch the cart item based on the provided ID
+        $cartItem = Cart::findOrFail($id);
         $cartItem->update([
             'quantity' => ++$cartItem->quantity,
             'total' => $cartItem->menu->price * $cartItem->quantity,
         ]);
-
         $this->mount();
     }
+
     public function decreaseQuantity($id)
     {
-        $cartItem = Cart::findOrFail($id); // Fetch the cart item based on the provided ID
+        $cartItem = Cart::findOrFail($id);
         if ($cartItem->quantity > 1) {
             $cartItem->update([
                 'quantity' => --$cartItem->quantity,
@@ -65,6 +69,7 @@ class Carts extends Component
             $this->mount();
         }
     }
+
     public function calculateSubTotal()
     {
         $subtotal = 0;
@@ -73,43 +78,50 @@ class Carts extends Component
         }
         $this->subtotalPrice = $subtotal;
     }
+
     public function calculateTotalPrice()
     {
         $this->totalPrice = $this->subtotalPrice + $this->shippingPrice - $this->discount;
     }
+
     public function applyCoupon()
     {
         if ($this->CartItems->isEmpty()) {
             $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => 'Please add some items to your cart first']);
-        } else {
-            $coupon = Coupon::where('code', $this->couponCode)->first();
-
-            if ($coupon) {
-                $this->discount = $coupon->discount_amount;
-                $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Coupon Applied Successfully.']);
-            } else {
-                $this->discount = 0;
-                $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => 'Invalid Coupon Code.']);
-            }
-
-            $this->calculateTotalPrice();
-            $this->mount();
-
+            return;
         }
+
+        $coupon = Coupon::where('code', $this->couponCode)->first();
+        if ($coupon) {
+            $this->discount = $coupon->discount_amount;
+            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Coupon Applied Successfully.']);
+        } else {
+            $this->discount = 0;
+            $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => 'Invalid Coupon Code.']);
+        }
+
+        $this->calculateTotalPrice();
+        $this->savePrices();
     }
-    public function savePrices(){
+
+    public function savePrices()
+    {
+        $this->calculateSubTotal();
+        $this->calculateTotalPrice();
+
         Price::updateOrCreate(
-            ['user_id' => $this->user_id],
+            ['user_id' => $this->user_id ?? null, 'device_id' => $this->device_id ?? null],
             [
                 'sub_total' => $this->subtotalPrice,
                 'shipping' => $this->shippingPrice,
                 'discount' => $this->discount,
                 'total_price' => $this->totalPrice,
-            ]
+            ],
         );
     }
 
-    public function check(){
+    public function check()
+    {
         $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => 'Please add some items to your cart first']);
     }
 

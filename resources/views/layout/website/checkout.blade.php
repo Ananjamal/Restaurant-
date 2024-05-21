@@ -128,6 +128,20 @@
     {{ $slot }}
 
     @livewireScripts()
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('alert', event => {
+                swal({
+                    title: event.detail.type === 'success' ? 'Good job!' : 'Oops!',
+                    text: event.detail.message,
+                    icon: event.detail.type,
+                    button: 'OK',
+                });
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

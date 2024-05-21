@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'total_amount', 'type', 'status'];
+    protected $fillable = ['user_id', 'total_amount', 'type', 'payment_method', 'status'];
 
     public function user()
     {
@@ -20,5 +20,9 @@ class Order extends Model
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+    public function prices()
+    {
+        return $this->hasMany(Price::class);
     }
 }
