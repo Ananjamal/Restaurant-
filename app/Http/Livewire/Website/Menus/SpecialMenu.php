@@ -11,3 +11,5 @@ class SpecialMenu extends Component
         return view('livewire.website.menus.special-menu');
     }
 }
+
+

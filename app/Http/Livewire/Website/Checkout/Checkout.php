@@ -70,6 +70,7 @@ class Checkout extends Component
                 'order_id' => $order->id,
                 'menu_id' => $cart->menu->id,
                 'quantity' => $cart->quantity,
+                'total_price' =>$cart->total,
             ]);
         }
         $userAddress = UserAddress::create([
@@ -96,6 +97,8 @@ class Checkout extends Component
             'payment_method'
         ]);
         $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Order Placed Successfully.']);
+        Cart::where('user_id', $this->user_id)->delete();
+
         return redirect()->route('/');
     }
     public function render()

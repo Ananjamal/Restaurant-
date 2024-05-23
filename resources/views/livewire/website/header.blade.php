@@ -51,7 +51,9 @@
                                             <li>
                                                 <a href="{{ route('profile.edit') }}">Profile</a>
                                             </li>
-
+                                            <li>
+                                                <a href="{{ route('orders') }}">My Orders</a>
+                                            </li>
                                             <li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf

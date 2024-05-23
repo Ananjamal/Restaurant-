@@ -853,7 +853,8 @@ html, body{ height: 100%; }
 }
 
 .offer-item img {
-    width: 20%;
+    width: 140px;
+    height: 140px;
     float: left;
     padding: 10px;
     background: #fff;

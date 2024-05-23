@@ -15,6 +15,9 @@ class Sidebar extends Component
     public function coupon(){
         $this->emit('expandCoupons');
     }
+    public function order(){
+        $this->emit('expandOrders');
+    }
     public function render()
     {
         return view('livewire.admin.sidebar')->layout('layout.admin.app');

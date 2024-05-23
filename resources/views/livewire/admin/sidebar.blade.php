@@ -19,6 +19,12 @@
                     <span class="menu-title">Coupons</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" wire:click='order'>
+                    <i class="fa-solid fa-bell-concierge menu-icon" style="color: rgb(30, 0, 255);"></i>
+                    <span class="menu-title">Orders</span>
+                </a>
+            </li>
             {{-- <li class="nav-item">
             <a class="nav-link" wire:click='category'>
                  <span class="menu-title">Categories</span>

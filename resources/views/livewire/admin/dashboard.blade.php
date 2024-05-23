@@ -7,6 +7,8 @@
         @livewire('admin.menus.menus')
     @elseif ($coupons)
         @livewire('admin.coupons.coupons')
+    @elseif ($orders)
+        @livewire('admin.orders.orders')
     @else
         @livewire('admin.main')
     @endif

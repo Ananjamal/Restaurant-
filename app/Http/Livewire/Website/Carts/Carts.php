@@ -25,6 +25,10 @@ class Carts extends Component
             $this->CartItems = Cart::where('user_id', $this->user_id)
                 ->with('menu')
                 ->get();
+
+            // foreach ($CartItems as $sessionCartItem) {
+            //     $sessionCartItem->update(['user_id' => Auth::id()]);
+            // }
         } else {
             $this->device_id = session()->getId();
             $this->CartItems = Cart::where('device_id', $this->device_id)
@@ -35,6 +39,38 @@ class Carts extends Component
         $this->calculateTotalPrice();
         $this->savePrices();
     }
+    // public function mount()
+    // {
+    //     if (auth()->check()) {
+    //         $this->user_id = auth()->id();
+
+    //         // Retrieve session cart items
+    //         $this->device_id = session()->getId();
+    //         $sessionCartItems = Cart::where('device_id', $this->device_id)
+    //             ->with('menu')
+    //             ->get();
+
+    //         // Update session cart items to the authenticated user
+    //         foreach ($sessionCartItems as $sessionCartItem) {
+    //             $sessionCartItem->update(['user_id' => $this->user_id, 'device_id' => null]);
+    //         }
+
+    //         // Retrieve all cart items for the authenticated user
+    //         $this->CartItems = Cart::where('user_id', $this->user_id)
+    //             ->with('menu')
+    //             ->get();
+
+    //     } else {
+    //         $this->device_id = session()->getId();
+    //         $this->CartItems = Cart::where('device_id', $this->device_id)
+    //             ->with('menu')
+    //             ->get();
+    //     }
+
+    //     $this->calculateSubTotal();
+    //     $this->calculateTotalPrice();
+    //     $this->savePrices();
+    // }
 
     public function deleteFromCart($id)
     {

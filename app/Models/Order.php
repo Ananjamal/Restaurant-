@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\OrderItem;
+use App\Models\UserAddress;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,5 +25,9 @@ class Order extends Model
     public function prices()
     {
         return $this->hasMany(Price::class);
+    }
+    public function userAddress()
+    {
+        return $this->hasOne(UserAddress::class);
     }
 }

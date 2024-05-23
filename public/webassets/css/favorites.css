@@ -27,9 +27,11 @@ body {
 }
 
 .card img {
-  
-    max-height: 150px;
-    object-fit: none;
+
+    height: 250px;
+    width: 100%;
+
+    object-fit: fit;
 }
 
 .card-body {
