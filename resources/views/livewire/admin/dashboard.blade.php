@@ -15,6 +15,8 @@
         @livewire('admin.reservations.reservations')
     @elseif ($chefs)
         @livewire('admin.chefs.chefs')
+    @elseif ($gallery)
+        @livewire('admin.galleries.galleries')
     @else
         @livewire('admin.main')
     @endif

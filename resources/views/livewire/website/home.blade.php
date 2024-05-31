@@ -33,7 +33,7 @@
     </div>
     <!-- end team-main -->
     <div id="gallery" class="gallery-main pad-top-100 pad-bottom-100">
-        @livewire('website.gallery.gallery')
+        @livewire('website.galleries.galleries')
 
     </div>
     <!-- end gallery-main -->

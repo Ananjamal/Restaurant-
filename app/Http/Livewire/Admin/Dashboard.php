@@ -12,7 +12,9 @@ class Dashboard extends Component
     public $orders = false;
     public $tables = false;
     public $reservations = false;
-    public $chefs = true;
+    public $chefs = false;
+    public $gallery = true;
+
 
 
     protected $listeners = [
@@ -23,6 +25,7 @@ class Dashboard extends Component
         'expandTables' => 'expandTables',
         'expandReservations' => 'expandReservations',
         'expandChefs' => 'expandChefs',
+        'expandGallery' => 'expandGallery',
 
 
     ];
@@ -35,6 +38,7 @@ class Dashboard extends Component
         $this->tables = false;
         $this->reservations = false;
         $this->chefs = false;
+        $this->gallery = false;
 
     }
     public function expandMenus()
@@ -46,6 +50,7 @@ class Dashboard extends Component
         $this->tables = false;
         $this->reservations = false;
         $this->chefs = false;
+        $this->gallery = false;
 
     }
     public function expandCoupons()
@@ -79,6 +84,7 @@ class Dashboard extends Component
         $this->orders = false;
         $this->reservations = false;
         $this->chefs = false;
+        $this->gallery = false;
 
     }
     public function expandReservations()
@@ -90,11 +96,26 @@ class Dashboard extends Component
         $this->menus = false;
         $this->orders = false;
         $this->chefs = false;
+        $this->gallery = false;
 
     }
     public function expandChefs()
     {
         $this->chefs = true;
+        $this->reservations = false;
+        $this->tables = false;
+        $this->coupons = false;
+        $this->categories = false;
+        $this->menus = false;
+        $this->orders = false;
+        $this->gallery = false;
+
+    }
+    public function expandGallery()
+    {
+        $this->gallery = true;
+
+        $this->chefs = false;
         $this->reservations = false;
         $this->tables = false;
         $this->coupons = false;

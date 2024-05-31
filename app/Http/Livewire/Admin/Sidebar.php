@@ -27,6 +27,9 @@ class Sidebar extends Component
     public function chef(){
         $this->emit('expandChefs');
     }
+    public function gallery(){
+        $this->emit('expandGallery');
+    }
     public function render()
     {
         return view('livewire.admin.sidebar')->layout('layout.admin.app');

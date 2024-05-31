@@ -43,6 +43,12 @@
                     <span class="menu-title">chefs</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" wire:click='gallery'>
+                    <i class="fa-solid fa-images menu-icon" style="color: rgb(30, 0, 255);"></i>
+                    <span class="menu-title">Gallery</span>
+                </a>
+            </li>
             {{-- <li class="nav-item">
             <a class="nav-link" wire:click='category'>
                  <span class="menu-title">Categories</span>
