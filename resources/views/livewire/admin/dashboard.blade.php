@@ -9,6 +9,12 @@
         @livewire('admin.coupons.coupons')
     @elseif ($orders)
         @livewire('admin.orders.orders')
+    @elseif ($tables)
+        @livewire('admin.tables.tables')
+    @elseif ($reservations)
+        @livewire('admin.reservations.reservations')
+    @elseif ($chefs)
+        @livewire('admin.chefs.chefs')
     @else
         @livewire('admin.main')
     @endif

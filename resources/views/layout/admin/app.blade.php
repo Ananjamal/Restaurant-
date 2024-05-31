@@ -35,7 +35,7 @@
 
 
     <style>
-        .table-responsive {
+        /* .table-responsive {
             overflow-x: auto;
         }
 
@@ -44,7 +44,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             max-width: 150px;
-        }
+        } */
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 

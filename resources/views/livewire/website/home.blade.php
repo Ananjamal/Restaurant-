@@ -18,7 +18,7 @@
 
     </div>
     <div class="special-menu pad-top-100 parallax">
-        @livewire('website.menus.special-menu')
+        {{-- @livewire('website.menus.special-menu') --}}
 
     </div>
     <!-- end special-menu -->
@@ -38,7 +38,7 @@
     </div>
     <!-- end gallery-main -->
     <div id="blog" class="blog-main pad-top-100 pad-bottom-100 parallax">
-        @livewire('website.blog.blog')
+        {{-- @livewire('website.blog.blog') --}}
 
     </div>
     <!-- end blog-main -->

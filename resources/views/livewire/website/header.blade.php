@@ -27,7 +27,7 @@
                                 <li><a href="#menu">Menu</a></li>
                                 <li><a href="#our_team">Team</a></li>
                                 <li><a href="#gallery">Gallery</a></li>
-                                <li><a href="#blog">Blog</a></li>
+                                {{-- <li><a href="#blog">Blog</a></li> --}}
                                 <li><a href="#reservation">Reservaion</a></li>
                                 <li><a href="#footer">Contact us</a></li>
                                 <li>
@@ -52,7 +52,10 @@
                                                 <a href="{{ route('profile.edit') }}">Profile</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('orders') }}">My Orders</a>
+                                                <a href="{{ route('orders') }}"> Orders</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('myReservations') }}"> Reservations</a>
                                             </li>
                                             <li>
                                                 <form method="POST" action="{{ route('logout') }}">

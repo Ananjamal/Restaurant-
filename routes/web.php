@@ -34,8 +34,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('dashboard', App\Http\Livewire\Admin\Dashboard::class)->name('dashboard');
 });
 
-Route::get('cart', App\Http\Livewire\Website\Carts\Carts::class)->name('cart');
-Route::get('favorites', App\Http\Livewire\Website\Favorites\Favorites::class)->name('favorites');
+Route::get('cart', App\Http\Livewire\Website\Carts\Carts::class)->name('cart')->middleware('auth');
+Route::get('favorites', App\Http\Livewire\Website\Favorites\Favorites::class)->name('favorites')->middleware('auth');
 Route::get('checkout', App\Http\Livewire\Website\Checkout\Checkout::class)->name('checkout')->middleware('auth');
 Route::get('orders', App\Http\Livewire\Website\Orders\Orders::class)->name('orders')->middleware('auth');
+Route::get('my_reservations', App\Http\Livewire\Website\Reservations\MyReservations::class)->name('myReservations')->middleware('auth');
 

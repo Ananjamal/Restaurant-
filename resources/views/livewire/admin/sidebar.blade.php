@@ -25,6 +25,24 @@
                     <span class="menu-title">Orders</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" wire:click='table'>
+                    <i class="fa-solid fa-chair menu-icon" style="color: rgb(30, 0, 255);"></i>
+                    <span class="menu-title">Tables</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" wire:click='reservation'>
+                    <i class="fa-regular fa-calendar-days menu-icon" style="color: rgb(30, 0, 255);"></i>
+                    <span class="menu-title">Reservations</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" wire:click='chef'>
+                    <i class="fa-solid fa-hot-tub-person menu-icon" style="color: rgb(30, 0, 255);"></i>
+                    <span class="menu-title">chefs</span>
+                </a>
+            </li>
             {{-- <li class="nav-item">
             <a class="nav-link" wire:click='category'>
                  <span class="menu-title">Categories</span>

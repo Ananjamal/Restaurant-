@@ -74,8 +74,8 @@
             border-bottom: 1px solid #ccc;
             /* Add border between items */
         }
-
-        .reservations-box {
+/*
+        .reservation-form {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
@@ -84,19 +84,15 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
-        .form-box {
-            margin-bottom: 20px;
-        }
-
-        .form-box label {
+        .reservation-form label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
             color: #333;
         }
 
-        .form-box input,
-        .form-box select {
+        .reservation-form input,
+        .reservation-form select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
@@ -104,8 +100,8 @@
             box-sizing: border-box;
         }
 
-        .form-box input:focus,
-        .form-box select:focus {
+        .reservation-form input:focus,
+        .reservation-form select:focus {
             border-color: #007bff;
             outline: none;
         }
@@ -119,11 +115,11 @@
             padding-right: 30px;
         }
 
-        .text-center {
+        .reservation-form .text-center {
             text-align: center;
         }
 
-        .reserve-book-btn button {
+        .reservation-form .reserve-book-btn button {
             background-color: #007bff;
             color: #fff;
             padding: 15px 30px;
@@ -134,9 +130,12 @@
             transition: background-color 0.3s ease;
         }
 
-        .reserve-book-btn button:hover {
+        .reservation-form .reserve-book-btn button:hover {
             background-color: #0056b3;
-        }
+        } */
+        .hover-effect:hover {
+        background-color: #0056b3;
+    }
 
         /* .card-body:hover {
             background-color: #e75b1e;

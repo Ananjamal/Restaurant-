@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Reservation extends Model
 {
     use HasFactory;
-    protected $fillable = ['table_id', 'name', 'email', 'phone', 'reservation_date', 'reservation_time', 'num_guests', 'occasion', 'status'];
+    protected $fillable = ['user_id','table_id', 'name', 'email', 'phone', 'reservation_date', 'reservation_time', 'num_guests', 'occasion', 'status'];
 
     public function user()
     {

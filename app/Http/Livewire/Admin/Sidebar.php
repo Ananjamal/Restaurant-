@@ -18,6 +18,15 @@ class Sidebar extends Component
     public function order(){
         $this->emit('expandOrders');
     }
+    public function table(){
+        $this->emit('expandTables');
+    }
+    public function reservation(){
+        $this->emit('expandReservations');
+    }
+    public function chef(){
+        $this->emit('expandChefs');
+    }
     public function render()
     {
         return view('livewire.admin.sidebar')->layout('layout.admin.app');

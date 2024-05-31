@@ -1,106 +1,242 @@
-<div id="reservation" class="reservations-main pad-top-100 pad-bottom-100">
-    {{-- The Master doesn't talk, he acts. --}}
-    <div class="container">
-        <div class="row">
-            <div class="form-reservations-box">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2 class="text-center block-title">
-                            Reservations
-                        </h2>
-                    </div>
-                    <h4 class="form-title">BOOKING FORM</h4>
-                    <p>PLEASE FILL OUT ALL REQUIRED* FIELDS. THANKS!</p>
-                    <form id="contact-form" method="post" class="reservations-box" name="contactform" action="mail.php">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <label for="form_name">Name</label>
-                                    <input type="text" name="form_name" id="form_name" required="required" data-error="Firstname is required.">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <label for="email">E-Mail ID</label>
-                                    <input type="email" name="email" id="email" required="required" data-error="E-mail id is required.">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <label for="phone">Contact No.</label>
-                                    <input type="text" name="phone" id="phone">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <label for="no_of_persons">No. Of Persons</label>
-                                    <select name="no_of_persons" id="no_of_persons" class="selectpicker">
-                                        {{-- <option selected disabled>No. Of Persons</option> --}}
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <label for="date-picker">Date</label>
-                                    <input type="text" name="date-picker" id="date-picker" required="required" data-error="Date is required." />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <label for="time-picker">Time</label>
-                                    <input type="text" name="time-picker" id="time-picker" required="required" data-error="Time is required." />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <label for="preferred_food">Tables Available</label>
-                                    <select name="Tables_Available" id="preferred_food" class="selectpicker">
-                                        {{-- <option selected disabled>Tables Available</option> --}}
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <label for="occasion">Occasion</label>
-                                    <select name="occasion" id="occasion" class="selectpicker">
-                                        {{-- <option selected disabled>Occasion</option> --}}
-                                        <option>Personal</option>
-                                        <option>Wedding</option>
-                                        <option>Birthday</option>
-                                        <option>Anniversary</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="text-center reserve-book-btn">
-                                    <button class="hvr-underline-from-center" type="submit" value="SEND" id="submit">BOOK MY TABLE</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-
-                    <!-- end form -->
-                </div>
-                <!-- end col -->
-            </div>
-            <!-- end reservations-box -->
-        </div>
-        <!-- end row -->
+{{-- <div id="reservation"
+    style="margin: 0 auto; max-width: 900px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; font-family: Arial, sans-serif; background-color: #f9f9f9;">
+    <div style="text-align: center;">
+        <h2 style="margin-bottom: 20px; color: #333;">Reservations</h2>
     </div>
-    <!-- end container -->
-
+    @if (session()->has('error'))
+        <div style="color: red; text-align: center; margin-bottom: 10px; font-size: 20px">
+            {{ session('error') }}
+        </div>
+    @endif
+    <div style="margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px; color: #555;">Booking Form</h4>
+        <p style="margin-top: 0; color: #777;">Please fill out all required fields. Thanks!</p>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Name*</label>
+            <input type="text" wire:model='name'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+            @error('name')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Email ID*</label>
+            <input type="email" wire:model='email'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+            @error('email')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Contact No.*</label>
+            <input type="number" wire:model='phone'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;">
+            @error('phone')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Date*</label>
+            <input type="date" wire:model='date'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+            @error('date')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">No. Of Persons*</label>
+            <select name="num_guests" wire:click='getFilteredTablesProperty' wire:model='num_guests'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            @error('num_guests')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Time*</label>
+            <input type="time" wire:model='time'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+            @error('time')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Tables Available*</label>
+            <select name="table_id" wire:model='table_id'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+                @if ($tablesAvailable->isEmpty())
+                    <option value="" disabled>No tables available for selected number of guests</option>
+                @else
+                    <option value="">Select</option>
+                    @foreach ($tablesAvailable as $table)
+                        <option value="{{ $table->id }}">Table {{ $table->id }} (Seats: {{ $table->capacity }})
+                        </option>
+                    @endforeach
+                @endif
+            </select>
+            @error('table_id')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Occasion*</label>
+            <select name="occasion" wire:model='occasion'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;">
+                <option value="">Select</option>
+                <option value="Personal">Personal</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+            </select>
+            @error('occasion')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button wire:click='makeReservation'
+            style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;"
+            onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007bff'">
+            BOOK MY TABLE
+        </button>
+    </div>
+</div> --}}
+<div id="reservation"
+    style="margin: 0 auto; max-width: 900px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; font-family: Arial, sans-serif; background-color: #f9f9f9;">
+    <div style="text-align: center;">
+        {{-- <h2 style="margin-bottom: 20px; color: #333;">Reservations</h2> --}}
+        <h2 class="text-center block-title">
+            Reservations
+        </h2>
+    </div>
+    @if (session()->has('error'))
+        <div style="color: red; text-align: center; margin-bottom: 10px; font-size: 20px">
+            {{ session('error') }}
+        </div>
+    @endif
+    <div style="margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px; color: #555;">Booking Form</h4>
+        <p style="margin-top: 0; color: #777;">Please fill out all required fields. Thanks!</p>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Name*</label>
+            <input type="text" wire:model='name'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+            @error('name')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Email ID*</label>
+            <input type="email" wire:model='email'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+            @error('email')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Contact No.*</label>
+            <input type="number" wire:model='phone'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;">
+            @error('phone')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Date*</label>
+            <input type="date" wire:model='date'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+            @error('date')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">No. Of Persons*</label>
+            <select name="num_guests" wire:model='num_guests'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            @error('num_guests')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Time*</label>
+            <input type="time" wire:model='time'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+            @error('time')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Tables Available*</label>
+            <select name="table_id" wire:model='table_id'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;" required>
+                @foreach ($tablesAvailable as $table)
+                    <option value="{{ $table->id }}">Table {{ $table->id }} (Seats: {{ $table->capacity }})
+                    </option>
+                @endforeach
+            </select>
+            @error('table_id')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div style="width: 48%;">
+            <label style="margin-right: 10px; color: #333;">Occasion*</label>
+            <select name="occasion" wire:model='occasion'
+                style="padding: 8px; width: calc(100% - 20px); border-radius: 5px; border: 1px solid #ccc;">
+                <option value="">Select</option>
+                <option value="Personal">Personal</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+            </select>
+            @error('occasion')
+                <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button wire:click='makeReservation'
+            style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;"
+            onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007bff'">
+            BOOK MY TABLE
+        </button>
+    </div>
 </div>
