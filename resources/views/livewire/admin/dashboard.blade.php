@@ -17,6 +17,8 @@
         @livewire('admin.chefs.chefs')
     @elseif ($gallery)
         @livewire('admin.galleries.galleries')
+    @elseif ($messages)
+        @livewire('admin.contacts.contacts')
     @else
         @livewire('admin.main')
     @endif

@@ -156,6 +156,53 @@
         .category {
             padding: 20px;
         }
+        .enlarged-image-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    .enlarged-image {
+        max-width: 90%;
+        max-height: 90%;
+    }
+    .footer-news {
+    background-color: #f8f8f8;
+    padding-top: 100px;
+    padding-bottom: 70px;
+}
+
+.ft-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.subscribe-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.subscribe-form .form-group {
+    margin-bottom: 20px;
+}
+
+.btn-orange {
+    background-color: #ff8c00;
+    color: #fff;
+}
+
+.btn-orange:hover {
+    background-color: #ff6a00;
+}
+
     </style>
     @livewireStyles
 </head>

@@ -23,7 +23,7 @@ class Edit extends Component
         'name' => 'min:3',
         'category_id' => 'exists:categories,id',
         'description' => 'min:6',
-        'newImage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'newImage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:4000',
         'price' => 'numeric|min:0',
     ];
 

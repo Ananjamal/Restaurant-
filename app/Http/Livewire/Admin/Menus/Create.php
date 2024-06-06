@@ -22,7 +22,7 @@ class Create extends Component
         'name' => 'required|min:3',
         'category_id' => 'required|exists:categories,id',
         'description' => 'required|min:6',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4000',
         // 'availability' => 'boolean',
         'price' => 'required|numeric|min:0',
     ];
@@ -49,7 +49,7 @@ class Create extends Component
             'image' => $imagePath,
         ]);
 
-        $this->reset(['name', 'description', 'image','price','category_id']);
+        $this->reset(['name', 'description', 'image', 'price', 'category_id']);
         $message = 'Item successfully created.';
         $this->emit('flash', $message);
         $this->emit('hideModal', 'CreateItem'); // Emit event to notify JS

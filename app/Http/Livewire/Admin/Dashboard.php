@@ -13,7 +13,9 @@ class Dashboard extends Component
     public $tables = false;
     public $reservations = false;
     public $chefs = false;
-    public $gallery = true;
+    public $gallery = false;
+    public $messages = false;
+
 
 
 
@@ -26,8 +28,7 @@ class Dashboard extends Component
         'expandReservations' => 'expandReservations',
         'expandChefs' => 'expandChefs',
         'expandGallery' => 'expandGallery',
-
-
+        'expandMessages' => 'expandMessages',
     ];
     public function expandCategories()
     {
@@ -39,6 +40,7 @@ class Dashboard extends Component
         $this->reservations = false;
         $this->chefs = false;
         $this->gallery = false;
+        $this->messages = false;
 
     }
     public function expandMenus()
@@ -51,6 +53,7 @@ class Dashboard extends Component
         $this->reservations = false;
         $this->chefs = false;
         $this->gallery = false;
+        $this->messages = false;
 
     }
     public function expandCoupons()
@@ -62,6 +65,7 @@ class Dashboard extends Component
         $this->tables = false;
         $this->reservations = false;
         $this->chefs = false;
+        $this->messages = false;
 
     }
     public function expandOrders()
@@ -73,6 +77,7 @@ class Dashboard extends Component
         $this->tables = false;
         $this->reservations = false;
         $this->chefs = false;
+        $this->messages = false;
 
     }
     public function expandTables()
@@ -85,6 +90,7 @@ class Dashboard extends Component
         $this->reservations = false;
         $this->chefs = false;
         $this->gallery = false;
+        $this->messages = false;
 
     }
     public function expandReservations()
@@ -97,6 +103,7 @@ class Dashboard extends Component
         $this->orders = false;
         $this->chefs = false;
         $this->gallery = false;
+        $this->messages = false;
 
     }
     public function expandChefs()
@@ -109,11 +116,25 @@ class Dashboard extends Component
         $this->menus = false;
         $this->orders = false;
         $this->gallery = false;
+        $this->messages = false;
 
     }
     public function expandGallery()
     {
         $this->gallery = true;
+        $this->messages = false;
+        $this->chefs = false;
+        $this->reservations = false;
+        $this->tables = false;
+        $this->coupons = false;
+        $this->categories = false;
+        $this->menus = false;
+        $this->orders = false;
+    }
+    public function expandMessages()
+    {
+        $this->messages = true;
+        $this->gallery = false;
 
         $this->chefs = false;
         $this->reservations = false;

@@ -30,6 +30,9 @@ class Sidebar extends Component
     public function gallery(){
         $this->emit('expandGallery');
     }
+    public function message(){
+        $this->emit('expandMessages');
+    }
     public function render()
     {
         return view('livewire.admin.sidebar')->layout('layout.admin.app');

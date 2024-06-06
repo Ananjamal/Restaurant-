@@ -10,10 +10,10 @@
                     @foreach ($galleries as $item)
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" wire:click='showPic({{ $item->id }})' data-toggle="modal" data-target="#openPic">
+                                <span>
                                     <img src="{{ Storage::Url($item->image) }}" alt="" />
-                                </a>
-                                <div class="modal fade" id="openPic" tabindex="-1" role="dialog">
+                                </span>
+                                {{-- <div class="modal fade" id="openPic" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" wire:click='refresh' data-dismiss="modal" aria-label="Close">
@@ -24,7 +24,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endforeach
