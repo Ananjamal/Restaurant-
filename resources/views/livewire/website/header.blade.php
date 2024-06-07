@@ -87,4 +87,20 @@
         <!-- end container-fluid -->
     </header>
     <!-- end header -->
+    <!-- Add jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        // Add click event listener to navigation links
+        $('.main-menu nav li a').on('click', function(){
+            // Check if the navigation menu is collapsed
+            if ($('#navbar').hasClass('in')) {
+                // Collapse the navigation menu
+                $('.navbar-toggle').click();
+            }
+        });
+    });
+</script>
+
 </div>
