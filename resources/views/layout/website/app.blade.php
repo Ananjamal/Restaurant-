@@ -12,7 +12,7 @@
 
     <!-- Site Metas -->
     <title>Food Funday Restaurant</title>
-    <meta name="keywords" content="">
+    <meta name="keywords" content="food, funday, restaurant">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('webassets/images/food.png') }}">

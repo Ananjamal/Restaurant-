@@ -11,7 +11,7 @@
     <title>Checkout</title>
     @livewireStyles()
     <style>
-       body {
+        body {
             background: #dbd8d8;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
@@ -36,22 +36,43 @@
         .summary {
             border-top: 2px solid #e0e0e0;
             padding-top: 20px;
+            margin-top: 30px;
         }
 
         .summary h5 {
             font-weight: bold;
             margin-bottom: 10px;
             color: #007bff;
+            font-size: 1.5em;
         }
 
-        .summary .row {
-            margin-bottom: 10px;
+        .table {
+            width: 100%;
         }
 
-        .summary .total {
+        .table th,
+        .table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table thead th {
+            background-color: #f8f9fa;
+        }
+
+        .summary-totals {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+        .total {
             font-weight: bold;
             font-size: 1.2em;
-            color: #28a745;
+        }
+
+        .total div {
+            color: #333;
         }
 
         .checkout-header {
@@ -61,65 +82,83 @@
         }
 
         .form-section,
-        /* Order Summary Section Styling */
-.summary-section {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f8f9fa;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
+        .summary-section {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
 
-.summary-section:hover {
-    background-color: #e2e6ea;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        /* .summary-section:hover {
+            background-color: #e2e6ea;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        } */
 
-.summary-header {
-    color: #333;
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-}
+        @media (max-width: 991.98px) {
+            .container {
+                margin-top: 20px;
+                padding: 15px;
+            }
 
-.summary-items {
-    margin-bottom: 20px;
-}
+            .form-section,
+            .summary-section {
+                padding: 15px;
+            }
+        }
 
-.summary-items .row {
-    margin-bottom: 10px;
-}
+        @media (max-width: 767.98px) {
+            .checkout-header {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
 
-.summary-items .row div {
-    color: #666;
-}
+            .form-section,
+            .summary-section {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
 
-.summary-totals {
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-}
+            .summary-header {
+                font-size: 1em;
+            }
 
-.summary-totals .total {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
+            .summary-totals .total {
+                font-size: 1em;
+            }
 
-.summary-totals .total div {
-    color: #333;
-    font-weight: bold;
-}
+            .total {
+                font-size: 1em;
+            }
+        }
 
-.btn-dark {
-    background-color: #007bff;
-    border-color: #007bff;
-    transition: background-color 0.3s, border-color 0.3s;
-}
+        @media (max-width: 575.98px) {
+            .container {
+                margin-top: 10px;
+                padding: 10px;
+            }
 
-.btn-dark:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-}
+            .form-section,
+            .summary-section {
+                padding: 10px;
+            }
+
+            .checkout-header {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+
+            .summary-header {
+                font-size: 0.9em;
+            }
+
+            .summary-totals .total {
+                font-size: 0.9em;
+            }
+
+            .total {
+                font-size: 0.9em;
+            }
+        }
     </style>
     @livewireStyles()
 </head>

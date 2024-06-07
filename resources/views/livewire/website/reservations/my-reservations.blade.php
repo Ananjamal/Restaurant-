@@ -12,7 +12,7 @@
                     <div class="table-responsive">
                         @if ($reservations->isEmpty())
                             <div class="col-md-6 m-auto text-center">
-                                <p class="display-5">There Is No Orders Yet.</p>
+                                <p class="display-5">There Is No Reservations Yet.</p>
                             </div>
                         @else
                             <table class="table table-borderless mb-0">

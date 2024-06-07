@@ -107,47 +107,40 @@
                 @enderror
             </div>
 
-            <button wire:click='placeOrder' class="btn btn-dark">Place Order</button>
             </form>
         </div>
         <!-- Cart Summary -->
         <div class="col-md-4 summary-section">
             <div class="summary">
                 <h5 class="summary-header">Order Summary</h5>
-                <div class="summary-items">
-                    <div class="row summary-header">
-                        <div class="col-md-6"><strong>Name</strong></div>
-                        <div class="col-md-3"><strong>Quantity</strong></div>
-                        <div class="col-md-3"><strong>Total</strong></div>
-                    </div>
-                    @foreach ($CartItems as $item)
-                        <div class="row">
-                            <div class="col-md-6">{{ $item->menu->name }}</div>
-                            <div class="col-md-3">{{ $item->quantity }}</div>
-                            <div class="col-md-3">${{ $item->total }}</div>
-                        </div>
-                    @endforeach
-                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($CartItems as $item)
+                            <tr>
+                                <td>{{ $item->menu->name }}</td>
+                                <td>{{ $item->quantity }}</td>
+                                <td>${{ $item->total }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 <div class="summary-totals">
-                    <div class="row total">
-                        <div class="col-md-6">Subtotal</div>
-                        <div class="col-md-6">${{ $subtotalPrice }}</div>
-                    </div>
-                    <div class="row total">
-                        <div class="col-md-6">Shipping</div>
-                        <div class="col-md-6">${{ $shippingPrice }}</div>
-                    </div>
-                    <div class="row total">
-                        <div class="col-md-6">Discount</div>
-                        <div class="col-md-6">${{ $discount }}</div>
-                    </div>
-                    <div class="row total">
-                        <div class="col-md-6" style="color:#28a745">Total</div>
-                        <div class="col-md-6" style="color:#28a745">${{ $totalPrice }}</div>
-                    </div>
+                    <div class="total">Subtotal: ${{ $subtotalPrice }}</div>
+                    <div class="total">Shipping: ${{ $shippingPrice }}</div>
+                    <div class="total">Discount: ${{ $discount }}</div>
+                    <div class="total" style="color:#28a745">Total: ${{ $totalPrice }}</div>
                 </div>
             </div>
         </div>
 
     </div>
+    <button wire:click='placeOrder' class="btn btn-dark">Place Order</button>
+
 </div>

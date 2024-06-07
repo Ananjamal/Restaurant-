@@ -868,7 +868,53 @@ html, body{ height: 100%; }
     padding-right: 20px;
 }
 
-.offer-item .offer-price {
+.price-tag {
+    font-size: 24px; /* Adjust font size as needed */
+    color: #ff5733; /* Change color as needed */
+    font-weight: bold; /* Adjust font weight as needed */
+    border: 2px solid #ff5733; /* Border color */
+    border-radius: 50%; /* Make it circular */
+    padding: 8px 16px; /* Adjust padding as needed */
+    display: inline-block; /* Ensures the border wraps around the content */
+    text-align: center; /* Center the text within the circular border */
+    background-color: #fff; /* Background color inside the circular border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.price-tag:hover {
+    background-color: #ff5733; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+}
+/* Media query for smaller screens */
+@media (max-width: 576px) {
+    .price-tag {
+        font-size: 15px; /* Adjust font size as needed */
+        border: 1px solid #78534a; /* Border color */
+        border-radius: 50%; /* Make it circular */
+        display: flex; /* Ensure block-level display */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        width: 50px; /* Set a fixed width */
+        height: 50px; /* Set a fixed height */
+        margin-left: 44.5%;
+        margin-bottom: 10px;
+    }
+
+    .offer-item img {
+        width: 140px;
+        height: 120px;
+        display: block; /* Ensure block-level display */
+        margin: 0 auto; /* Center horizontally */
+        padding: 10px;
+        background: #fff;
+        border-radius: 50%;
+    }
+}
+
+
+
+/* .offer-item .offer-price {
     position: absolute;
     right: 15px;
     top: 50%;
@@ -888,7 +934,7 @@ html, body{ height: 100%; }
     font-family: 'Roboto', sans-serif;
     text-align: center;
     letter-spacing: .5px;
-}
+} */
 
 .offer-item div h3 {
     font-size: 20px;
@@ -922,6 +968,7 @@ html, body{ height: 100%; }
 .tab-menu .is-active p{
 	color:#fff;
 }
+
 
 /*------------------------------------------------------------------
     TEAM AREA
